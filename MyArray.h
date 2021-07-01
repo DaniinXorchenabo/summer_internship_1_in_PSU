@@ -9,9 +9,10 @@
 class MyArray {
 private:
     int *arr;
+    const int *old_arr;
     int start_n;
     int post_processed_n;
-    const static std::set<char> control_chars;
+//    const static std::set<char> control_chars;
 
     int static base_input(std::string inp_str, const std::function<bool(int)> filter);
 
@@ -24,7 +25,13 @@ public:
 
     static std::unique_ptr<MyArray> read_array_from_stdin();
 
-    void pretty_print();
+    static void pretty_print(int len, const int *arr);
+
+    void print_size();
+
+    void print_new_arr();
+
+    void print_old_arr();
 };
 
 #endif

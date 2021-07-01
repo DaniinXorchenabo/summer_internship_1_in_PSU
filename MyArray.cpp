@@ -10,7 +10,7 @@
 #include <functional>
 
 
-const std::set<char> MyArray::control_chars{'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-'};
+//const std::set<char> MyArray::control_chars{'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-'};
 
 
 MyArray::MyArray() {
@@ -22,16 +22,16 @@ MyArray::MyArray() {
 MyArray::MyArray(int start_n, const int *arr) {
     this->start_n = start_n;
     this->post_processed_n = (start_n + 1) / 2;
+    this->old_arr = arr;
     this->arr = new int[this->post_processed_n];
     for (int i = 0; i < start_n; i += 2) {
         this->arr[i / 2] = arr[i];
-//        std::cout<<"write "<<(int)(i / 2)<<" "<<arr[i]<<"\t";
     }
 }
 
-void MyArray::pretty_print() {
-    for (int i = 0; i < post_processed_n; i++) {
-        std::cout<<arr[i]<<"\n";
+void MyArray::pretty_print(int len, const int *arr) {
+    for (int i = 0; i < len; i++) {
+        std::cout << arr[i] << "\n";
     }
 }
 
@@ -48,7 +48,7 @@ int MyArray::base_input(
     std::cout << inp_str;
     while (true) {
         try {
-            std::cin.clear();
+//            std::cin.clear();
             std::getline(std::cin, input_data);
             int res = std::stoi(input_data);
             if (std::to_string(res) == input_data) {
@@ -76,6 +76,21 @@ std::unique_ptr<MyArray> MyArray::read_array_from_stdin() {
         a[i] = MyArray::base_input("Input next element of array:");
     }
     return std::make_unique<MyArray>(n, a);
+}
+
+
+void MyArray::print_size() {
+    std::cout << "\nResult array length is " << post_processed_n << "\n";
+}
+
+void MyArray::print_new_arr() {
+    std::cout << "\n\tResult array\n";
+    MyArray::pretty_print(post_processed_n, arr);
+}
+
+void MyArray::print_old_arr() {
+    std::cout << "\n\tStart array\n";
+    MyArray::pretty_print(start_n, old_arr);
 }
 
 #define MY_ARRAY
