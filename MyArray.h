@@ -18,7 +18,7 @@ private:
 public:
     MyArray();
 
-    MyArray(int start_n, int *arr);
+    MyArray(int start_n, const int *arr);
 
     ~MyArray();
 
