@@ -5,12 +5,13 @@
 #include <set>
 #include <unordered_set>
 #include <algorithm>
-//#include "MyArray.h"
+#include "MyArray.h"
 
 using namespace std;
 
 int main() {
 
+    auto test_arr = MyArray::read_array_from_stdin();
 //    set<char> correct_ch{'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-',};
 //    set<char> res;
 //    int n;

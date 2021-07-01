@@ -4,6 +4,7 @@
 #include <set>
 #include <iostream>
 #include <memory>
+#include <functional>
 
 class MyArray {
 private:
@@ -11,6 +12,8 @@ private:
     int start_n;
     int post_processed_n;
     const static std::set<char> control_chars;
+
+    int static base_input(std::string inp_str, const std::function<bool(int)> filter);
 
 public:
     MyArray();
