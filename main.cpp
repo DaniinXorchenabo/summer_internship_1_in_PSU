@@ -12,9 +12,10 @@ using namespace std;
 int main() {
 
     auto test_arr = MyArray::read_array_from_stdin();
+    test_arr->print_old_arr();
     test_arr->print_size();
     test_arr->print_new_arr();
-    test_arr->print_old_arr();
+
 //    set<char> correct_ch{'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-',};
 //    set<char> res;
 //    int n;

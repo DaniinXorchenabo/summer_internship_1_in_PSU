@@ -30,9 +30,13 @@ MyArray::MyArray(int start_n, const int *arr) {
 }
 
 void MyArray::pretty_print(int len, const int *arr) {
+    std::cout<<"\n#########################\n";
+    std::cout<<"| index\t|   element\t|\n";
+    std::cout<<"#########################\n";
     for (int i = 0; i < len; i++) {
-        std::cout << arr[i] << "\n";
+        std::cout<<"| "<<i<<"\t|   " << arr[i] << "\t\t|\n";
     }
+    std::cout<<"#########################\n";
 }
 
 MyArray::~MyArray() {
