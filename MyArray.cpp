@@ -6,6 +6,7 @@
 #include <functional>
 #include "MyArray.h"
 
+using namespace std;
 
 MyArray::MyArray() {
     arr = nullptr;
@@ -24,13 +25,13 @@ MyArray::MyArray(int start_n, const int *arr) {
 }
 
 void MyArray::pretty_print(int len, const int *arr) {
-    std::cout << "\n#########################\n";
-    std::cout << "| index\t|   element\t|\n";
-    std::cout << "#########################\n";
+    cout << "\n#########################\n";
+    cout << "| index\t|   element\t|\n";
+    cout << "#########################\n";
     for (int i = 0; i < len; i++) {
-        std::cout << "| " << i << "\t|   " << arr[i] << "\t\t|\n";
+        cout << "| " << i << "\t|   " << arr[i] << "\t\t|\n";
     }
-    std::cout << "#########################\n";
+    cout << "#########################\n";
 }
 
 MyArray::~MyArray() {
@@ -38,31 +39,31 @@ MyArray::~MyArray() {
 }
 
 int MyArray::base_input(
-        std::string inp_str,
-        const std::function<bool(int)> filter = [](int num) { return true; }
+        string inp_str,
+        const function<bool(int)> filter = [](int num) { return true; }
 ) {
 
-    std::string input_data;
-    std::cout << inp_str;
+    string input_data;
+    cout << inp_str;
     while (true) {
         try {
-            std::getline(std::cin, input_data);
-            int res = std::stoi(input_data);
-            if (std::to_string(res) == input_data) {
+            getline(cin, input_data);
+            int res = stoi(input_data);
+            if (to_string(res) == input_data) {
                 if (filter(res)) {
                     return res;
                 }
             }
 
-            std::cout << "Error! No correct number! Repeat please:";
+            cout << "Error! No correct number! Repeat please:";
         }
-        catch (std::invalid_argument e) {
-            std::cout << "Error! input must be is integer! Repeat please:";
+        catch (invalid_argument e) {
+            cout << "Error! input must be is integer! Repeat please:";
         }
     }
 }
 
-std::unique_ptr<MyArray> MyArray::read_array_from_stdin() {
+unique_ptr<MyArray> MyArray::read_array_from_stdin() {
     int n = MyArray::base_input(
             "Input array length:",
             [](int n) { return n > 0; }
@@ -71,21 +72,21 @@ std::unique_ptr<MyArray> MyArray::read_array_from_stdin() {
     for (int i = 0; i < n; i++) {
         a[i] = MyArray::base_input("Input next element of array:");
     }
-    return std::make_unique<MyArray>(n, a);
+    return make_unique<MyArray>(n, a);
 }
 
 
 void MyArray::print_size() {
-    std::cout << "\nResult array length is " << post_processed_n << "\n";
+    cout << "\nResult array length is " << post_processed_n << "\n";
 }
 
 void MyArray::print_new_arr() {
-    std::cout << "\n\tResult array\n";
+    cout << "\n\tResult array\n";
     MyArray::pretty_print(post_processed_n, arr);
 }
 
 void MyArray::print_old_arr() {
-    std::cout << "\n\tStart array\n";
+    cout << "\n\tStart array\n";
     MyArray::pretty_print(start_n, old_arr);
 }
 

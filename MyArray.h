@@ -6,6 +6,8 @@
 #include <memory>
 #include <functional>
 
+using namespace std;
+
 class MyArray {
 private:
     int *arr;
@@ -13,7 +15,7 @@ private:
     int start_n;
     int post_processed_n;
 
-    int static base_input(std::string inp_str, const std::function<bool(int)> filter);
+    int static base_input(std::string inp_str, const function<bool(int)> filter);
 
 public:
     MyArray();
@@ -22,7 +24,7 @@ public:
 
     ~MyArray();
 
-    static std::unique_ptr<MyArray> read_array_from_stdin();
+    static unique_ptr<MyArray> read_array_from_stdin();
 
     static void pretty_print(int len, const int *arr);
 
