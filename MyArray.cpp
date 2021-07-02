@@ -1,16 +1,10 @@
 #ifndef MY_ARRAY
 
-#include "MyArray.h"
+
 #include <iostream>
-#include <limits>
-#include <set>
-#include <unordered_set>
-#include <algorithm>
 #include <memory>
 #include <functional>
-
-
-//const std::set<char> MyArray::control_chars{'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-'};
+#include "MyArray.h"
 
 
 MyArray::MyArray() {
@@ -30,13 +24,13 @@ MyArray::MyArray(int start_n, const int *arr) {
 }
 
 void MyArray::pretty_print(int len, const int *arr) {
-    std::cout<<"\n#########################\n";
-    std::cout<<"| index\t|   element\t|\n";
-    std::cout<<"#########################\n";
+    std::cout << "\n#########################\n";
+    std::cout << "| index\t|   element\t|\n";
+    std::cout << "#########################\n";
     for (int i = 0; i < len; i++) {
-        std::cout<<"| "<<i<<"\t|   " << arr[i] << "\t\t|\n";
+        std::cout << "| " << i << "\t|   " << arr[i] << "\t\t|\n";
     }
-    std::cout<<"#########################\n";
+    std::cout << "#########################\n";
 }
 
 MyArray::~MyArray() {
@@ -52,12 +46,10 @@ int MyArray::base_input(
     std::cout << inp_str;
     while (true) {
         try {
-//            std::cin.clear();
             std::getline(std::cin, input_data);
             int res = std::stoi(input_data);
             if (std::to_string(res) == input_data) {
                 if (filter(res)) {
-//                    std::cout << "-----** " << res << "\n";
                     return res;
                 }
             }
